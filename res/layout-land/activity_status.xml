@@ -17,27 +17,24 @@
         android:layout_marginRight="17dp"
         android:text="@string/button_tweet" />
 
+    <TextView
+        android:id="@+id/textCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/buttonTweet"
+        android:layout_below="@+id/buttonTweet"
+        android:text="140"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
     <EditText
         android:id="@+id/editStatus"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/buttonTweet"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
         android:ems="10"
+        android:gravity="top"
         android:hint="@string/hint_status"
-        android:inputType="textMultiLine" >
-        
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/textCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editStatus"
-        android:layout_alignTop="@+id/buttonTweet"
-        android:text="140"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:inputType="textMultiLine" />
     
 </RelativeLayout>
