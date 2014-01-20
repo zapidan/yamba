@@ -23,7 +23,13 @@ public class StatusActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.new_activity_status);
+
+		if (savedInstanceState == null) {
+			StatusFragment statusFragment = new StatusFragment();
+			getFragmentManager().beginTransaction()
+				.add(android.R.id.content, statusFragment, statusFragment.getClass().getSimpleName())
+			.commit();
+		}
 	}
 
 	@Override
@@ -34,5 +40,4 @@ public class StatusActivity extends Activity {
 		return true;
 	}
 	
-
 }
