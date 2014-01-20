@@ -1,13 +1,21 @@
-package com.dano.yamba;
+package com.dano.yamba.fragment;
 
+import com.dano.yamba.R;
+import com.dano.yamba.R.id;
+import com.dano.yamba.R.layout;
+import com.dano.yamba.activity.SettingsActivity;
 import com.marakana.android.yamba.clientlib.YambaClient;
 import com.marakana.android.yamba.clientlib.YambaClientException;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -84,7 +92,18 @@ public class StatusFragment extends Fragment implements OnClickListener{
 
 		@Override
 		protected String doInBackground(String... params) {
-			YambaClient yambaCloud = new YambaClient("student", "password");
+			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+			
+			String username = prefs.getString("username", "");
+			String password = prefs.getString("password", "");
+			
+			if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+				getActivity().startActivity(new Intent(getActivity(), SettingsActivity.class));
+				
+				return "Please update your username and password";
+			}
+			
+			YambaClient yambaCloud = new YambaClient(username, password);
 			
 			try {
 				yambaCloud.postStatus(params[0]);
