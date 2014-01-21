@@ -2,6 +2,7 @@ package com.dano.yamba.activity;
 
 import com.dano.yamba.R;
 import com.dano.yamba.fragment.StatusFragment;
+import com.dano.yamba.service.RefreshService;
 import com.marakana.android.yamba.clientlib.YambaClient;
 import com.marakana.android.yamba.clientlib.YambaClientException;
 
@@ -49,13 +50,18 @@ public class StatusActivity extends Activity {
 		switch (item.getItemId()) {
 			case R.id.action_settings:
 				startActivity(new Intent(this, SettingsActivity.class));
-				return true;
+				break;
 			case R.id.action_tweet:
 				startActivity(new Intent(this, StatusActivity.class));
-				return true;
+				break;
+			case R.id.action_referesh:
+				startService(new Intent(this, RefreshService.class));
+				break;
 			default:
 				return false;
 		}
+		
+		return true;
 	}
 	
 }
