@@ -31,7 +31,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".service.RefreshService"></service>
+        <service android:name="com.dano.yamba.service.RefreshService" />
+        <provider 
+            android:name="com.dano.yamba.provider.StatusProvider"
+            android:authorities="com.dano.yamba.provider.StatusProvider"
+            android:exported="false" />
     </application>
 
 </manifest>
