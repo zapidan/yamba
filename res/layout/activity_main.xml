@@ -7,4 +7,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
+    
+    <fragment 
+        android:id="@+id/fragment_timeline"
+        android:name="com.dano.yamba.fragment.TimelineFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -92,6 +92,11 @@ public class StatusFragment extends Fragment implements OnClickListener{
 
 		@Override
 		protected String doInBackground(String... params) {
+			
+			if (params[0].equals("")) {
+				return "Please enter a tweet";
+			}
+			
 			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 			
 			String username = prefs.getString("username", "");

@@ -51,12 +51,6 @@ public class StatusActivity extends Activity {
 			case R.id.action_settings:
 				startActivity(new Intent(this, SettingsActivity.class));
 				break;
-			case R.id.action_tweet:
-				startActivity(new Intent(this, StatusActivity.class));
-				break;
-			case R.id.action_referesh:
-				startService(new Intent(this, RefreshService.class));
-				break;
 			default:
 				return false;
 		}
